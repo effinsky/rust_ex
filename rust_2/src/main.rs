@@ -1,5 +1,5 @@
 fn main() {
-	// WIP
+	// WIP: how to do a param type alias; how to eliminate reliance on clone trait
 	// sorting a list in place
 	let mut list = vec![4i64, -200, 1, 6, 34, 11, 53, 2];
 	println!("list before sorting: {:?}", &list);
