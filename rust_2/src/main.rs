@@ -7,11 +7,17 @@ fn main() {
 	println!("list after sorting: {:?}", &list);
 }
 
-pub fn quicksort<T: PartialOrd + Clone>(list: &mut [T]) {
+pub fn quicksort<T>(list: &mut [T])
+where
+	T: PartialOrd + Clone,
+{
 	quicksort_internal(list, 0_usize, list.len() - 1);
 }
 
-fn quicksort_internal<T: PartialOrd + Clone>(list: &mut [T], low: usize, high: usize) {
+fn quicksort_internal<T>(list: &mut [T], low: usize, high: usize)
+where
+	T: PartialOrd + Clone,
+{
 	if low < high {
 		let pivot_idx = partition(list, low, high);
 		quicksort_internal(list, low, pivot_idx - 1);
@@ -19,7 +25,10 @@ fn quicksort_internal<T: PartialOrd + Clone>(list: &mut [T], low: usize, high: u
 	}
 }
 
-fn partition<T: PartialOrd + Clone>(list: &mut [T], first: usize, last: usize) -> usize {
+fn partition<T>(list: &mut [T], first: usize, last: usize) -> usize
+where
+	T: PartialOrd + Clone,
+{
 	let pivot = list[first].clone();
 	let mut low = first + 1;
 	let mut high = last;
